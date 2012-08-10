@@ -45,6 +45,7 @@ module BestInPlace
       out << " data-inner-class='#{opts[:inner_class]}'" if opts[:inner_class]
       out << " data-html-attrs='#{opts[:html_attrs].to_json}'" unless opts[:html_attrs].blank?
       out << " data-original-content='#{attribute_escape(real_object.send(field))}'" if opts[:display_as] || opts[:display_with]
+      out << " data-updatable='#{opts[:updatable]}'" unless opts[:updatable].blank?
       if opts[:data] && opts[:data].is_a?(Hash)
         opts[:data].each do |k, v|
           if !v.is_a?(String) && !v.is_a?(Symbol)
